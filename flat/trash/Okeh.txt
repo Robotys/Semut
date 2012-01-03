@@ -1,0 +1,4 @@
+Okeh
+30-11-2011 07:53:49
+a:1:{i:0;s:4:"yesh";}
+<img src="http://localhost/semut/uploads/college1.jpg"/><img src="http://localhost/semut/uploads/college1.jpg"/><img src="http://localhost/semut/uploads/11.jpg"/><img src="http://localhost/semut/uploads/1.jpg"/><img src="http://localhost/semut/uploads/college5.jpg"/>

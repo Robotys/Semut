@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{post_title} at {blog_name}, {blog_description}</title>
+	<link rel='stylesheet' type='text/css' href='style.css'>
+</head>
+<body>
+<div class='center'><div class='wrap'>
+	
+	<div class='header'>
+		<h1><a href='{home_url}'>{blog_name}</a></h1>
+		<p>{blog_description}</p>
+	</div>
+	
+	<div class='post'>
+	
+		<div class='meta'>
+			<p class='date'>{post_date}</p>
+			<p class='tag'>{post_tag}</p>
+		</div>
+		
+		<div class='cont'>
+			<h2>{post_title}</h2>
+			{post_content}
+			
+		</div>
+		
+		
+		<div class='nav'> <a href='{prev_post}' class='prev'>&laquo; Previous Post</a>  <a href='{home_url}'>Home</a>  <a href='{next_post}' class='next'>Next Post &raquo; </a>
+		</div>
+	</div>
+	
+	<div class='footer'>
+		<p>copyright &copy; {blog_name} 2011. {blog_name} is powered by <a href=''>Semut</a>, with <a href='#'>posterus</a> theme by <a href=''>semut team</a></p>
+	</div>
+	
+	
+	
+</div></div>
+</body>
+</html>
