@@ -1,6 +1,6 @@
 #Jeckyll For PHP
 
-Semut is a flat file blogging system. It`s try to emulate its idole, Wordpress.
+Semut is a flat file blogging system. It`s try to emulate its idol, Wordpress.
 No database needed as all its entries will be generated to plain html. Templating
 engine mimicking moustache added as themes template.
 
