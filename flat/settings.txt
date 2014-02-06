@@ -1,1 +1,0 @@
-a:6:{s:9:"blog_name";s:11:"Semut Merah";s:16:"blog_description";s:39:"Kuih Sarang Semut Sangat Sedap! Ye KE~~";s:8:"username";s:11:"semutadmin!";s:8:"password";s:40:"bf24d65c9bb05b9b814a966940bcfa50767c8a8d";s:11:"admin_theme";s:7:"red_ant";s:10:"blog_theme";s:4:"kamb";}

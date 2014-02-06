@@ -1,6 +1,0 @@
-Peergh Penat Weh
-30-11-2011 07:52:56
-a:1:{i:0;s:6:"wahwah";}
-<img src="http://localhost/semut/uploads/3.jpg"/>
-
-last try
