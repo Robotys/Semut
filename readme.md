@@ -23,3 +23,27 @@ Oleh yang demikian, Semut tidak akan menjadi seperti Wordpress. Ia tidak akan cu
 Cara kerja menggunakan Semut seharusnya ringkas sahaja.
 
 > Install/Register -> connect to gdrive/dbox -> [create sample.md] -> write -> publish
+
+## Roadmap SEMVC
+
+Semut akan dibina seratus peratus from scratch. Ia akan menjadi gabungan Codeigniter dan Laravel. Misi utama SEMVC adalah 1) mudah difahami 2) mudah digunakan dan 3) pantas semasa production
+
+antara konsep yang digunakan adalah:
+
+- Routing
+- MVC
+- Modular
+- Scaffolding / factory
+
+dan antara perkara dan fungsi yang akan dibina adalah:
+
+- package manager (browse/install | free/paid)
+- google api
+- dropbox api
+- SES api
+- email api
+- system directory outside public root
+- deploy tool
+- test tool
+
+pendek kata, kebanyakan fungsi yang dibina adalah module dalam SEMVC
