@@ -47,3 +47,5 @@ dan antara perkara dan fungsi yang akan dibina adalah:
 - test tool
 
 pendek kata, kebanyakan fungsi yang dibina adalah module dalam SEMVC
+
+another inspiration for styles: http://qrohlf.com/posts/learn-to-code-then-learn-cs/

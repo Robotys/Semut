@@ -1,35 +1,33 @@
 <?php
-	require('parsedown.class.php');
-	
-	$md = file_get_contents('sample.md');
-
-	$html = Parsedown::instance()->parse($md);
-
+	require('semut.php');
+	console_log();
 ?>
 
 <html>
 <head>
 	<title></title>
 	<style>
-		@import url(http://fonts.googleapis.com/css?family=Allan:700|Merriweather);
+		/*@import url(http://fonts.googleapis.com/css?family=Allan:700|Merriweather);*/
+		@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:700|PT+Serif);
 		body{
-			font-family: Merriweather, Georgia, serif;
-			font-size: 0.9rem;
+			font-family: 'PT Serif', Georgia, serif;
+			font-size: 1rem;
 			line-height: 1.6;
 			text-rendering: optimizeLegibility;
 		}
 
 		h1,h2,h3,h4,h5{
-			font-family: Allan, Helvetica, sans-serif;
+			font-family: 'PT Sans Narrow', Helvetica, sans-serif;
 			text-rendering: optimizeLegibility;
 			margin: 0px;
+			margin-bottom: -25px;
 		}
 
 		h1{font-size: 3em;}
-		h2{font-size: 2.5em;}
-		h3{font-size: 2em;}
-		h4{font-size: 1.8em;}
-		h5{font-size: 1.5em;}
+		h2{font-size: 2em;}
+		h3{font-size: 1.8em;}
+		h4{font-size: 1.5em;}
+		h5{font-size: 1.1em;}
 
 		div{
 			box-sizing: border-box;
@@ -60,7 +58,8 @@
 		}
 
 		a.masthead{
-			font-family: Allan, Helvetica, sans-serif;
+			font-family: 'PT Serif', Georgia, serif;
+			font-weight: bold;
 			font-size: 5em;
 		}
 
@@ -70,6 +69,10 @@
 			padding: 15px;
 			border-bottom: 2px solid #000;
 		}
+/*
+		div.post > p:first-child{
+			font-size: 1.5em;
+		}*/
 
 		blockquote{
 			background: #eee;
@@ -83,7 +86,7 @@
 <div class="center fixedwidth"><div class="wrapper">
 
 	<div class="header">
-		<a href="#" class="masthead">Robotys.net</a>
+		<a href="<?= base_url();?>" class="masthead">Robotys.net</a>
 		<p>Selamat datang ke Robotys.net oleh Izwan Wahab. Tempat beliau mencatat nota dan buah fikiran tentang programming, bisnes dan juga kehidupan. Antara yang menarik adalah perjalan mencapai RM50000 daripada projek sampingan. Cara terbaik untuk mengikuti kemaskini artikel di sini adalah dengan subscribe ke dalam newsletter mingguan beliau. Tiada spam, hanya perkongsian terhad! </p>		
 	</div>
 
