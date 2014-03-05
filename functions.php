@@ -18,24 +18,58 @@
 		echo '</pre>';
 	}
 
-	function articles($order_by = 'date', $sort_to = 'ASC'){
-		// sedut dari mds
-		$files = scandir('mds');
-		foreach($files as $filename){
-			if($filename !== '.' AND $filename !== '..' AND $filename !== '.DS_Store'){
-				
-				$timestamp  = filemtime('mds/'.$filename);
-				$param['timestamp'] = $timestamp;
-				$param['datetime'] = date('d M Y H:iA',$timestamp);
-				$param['filename'] = $filename;
-				$param['slug'] = get_slug($filename);
-				$param['excerpt'] = get_excerpt($filename);
-				$fs[] = $param;
+	function article_links($param = ''){
+		$order_by = 'date';
+		$sort_to = 'ASC';
+		$limit = 0;
+
+		$param = json_decode($param, TRUE); 
+		if(isset($param) AND count($param) > 0){
+			foreach($param as $key=>$val){
+				$$key = $val;
 			}
 		}
 
-		// dumper($fs);
+		$all = articles($order_by, $sort_to, $limit);
 
+		foreach($all as $post){
+			$li[] = '<li><a href="'.site_url('read/'.$post['slug']).'">'.$post['title'].'</a></li>';
+		}
+
+		echo implode($li);
+	}
+
+	function articles($order_by = 'date', $sort_to = 'ASC', $limit = 0){
+		// sedut dari mds
+
+		$scanned = scandir('mds');
+
+		foreach($scanned as $filename){
+			if($filename !== '.' AND $filename !== '..' AND $filename !== '.DS_Store' AND $filename !== 'index.html') $files[] = $filename;
+		}
+
+		if($limit === 0) $limit = count($files);
+
+		for($i = 0; $i < $limit; $i++){
+			$filename = $files[$i];	
+			$timestamp  = filemtime('mds/'.$filename);
+			$param['timestamp'] = $timestamp;
+			$param['datetime'] = date('d M Y H:i a',$timestamp);
+			$param['filename'] = $filename;
+			$param['slug'] = get_slug($filename);
+			$param['title'] = get_title($filename);
+			$param['excerpt'] = get_excerpt($filename);
+			$fs[] = $param;	
+		}
+
+		return $fs;
+	}
+
+	function get_title($filename){
+		$exp = explode('
+', get_content($filename));
+
+		return trim(str_replace('#', '', $exp[0]));
 	}
 
 	function get_content($filename){
@@ -47,19 +81,21 @@
 		$exp = explode('
 ', $content);
 
-		if(array_key_exists(0, $exp) !== FALSE) $arr[] = $exp[0];
+		// if(array_key_exists(0, $exp) !== FALSE) $arr[] = $exp[0];
 		if(array_key_exists(1, $exp) !== FALSE) $arr[] = $exp[1];
 		if(array_key_exists(2, $exp) !== FALSE) $arr[] = $exp[2];
+		// if(array_key_exists(3, $exp) !== FALSE) $arr[] = $exp[3];
+		// if(array_key_exists(4, $exp) !== FALSE) $arr[] = $exp[4];
 		
-		return implode('
-', $arr);
+		return trim(implode('
+', $arr));
 	}
 
 	function get_slug($str){
 		$ex = explode('.', $str);
 		unset($ex[(count($ex)-1)]);
 		$s = trim(implode(' ',$ex));
-		$result = preg_replace("/[^a-zA-Z0-9 ]+/", "", $s);
+		$result = preg_replace("/[^a-zA-Z0-9 -_]+/", "", $s);
 		$result = strtolower($result);
 		$result = str_replace(' ', '-', $result);
 		return $result;

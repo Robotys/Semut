@@ -1,6 +1,7 @@
 <?php
 	require('semut.php');
 	// console_log();
+
 ?>
 
 <html>
@@ -101,6 +102,14 @@
 			margin: 0 auto;
 			display:block;
 		}
+
+		footer{
+			text-align: center;
+			margin-top: 150px;
+			margin-bottom: 20px;
+			font-size: 0.8em;
+			color: #aaa;
+		}
 	</style>
 </head>
 <body>
@@ -119,29 +128,18 @@
 		<h2>Artikel-artikel lain:</h2>
 		<p class="column">
 		<ul>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
-			<li><a href="">Tajuk Lain</a></li>
+			<?php article_links();?>
+			<li><a href="<?= site_url('all/post')?>">all post &raquo;</a></li>
 		</ul>
 		</p>
 
 	</div>
 
-	<div class="subscribe">
-		<form method="post"><input type="text" name="name" placeholder="nama"/><input type="text" name="email" placeholder="email"/><input type="submit" value="subscribe &raquo;"/></form>
-	</div>
+	<footer>
+		all rights reserved &copy; <?= date('Y');?> Robotys.net
+	</footer>
+
+
 
 </div></div>
 </body>
