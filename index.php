@@ -1,6 +1,6 @@
 <?php
 	require('semut.php');
-	console_log();
+	// console_log();
 ?>
 
 <html>
