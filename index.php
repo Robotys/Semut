@@ -6,6 +6,7 @@
 <html>
 <head>
 	<title></title>
+	<meta name="elapse_time" value="<?= elapse_time()?>">
 	<style>
 		/*@import url(http://fonts.googleapis.com/css?family=Allan:700|Merriweather);*/
 		@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:700|PT+Serif);
@@ -38,7 +39,7 @@
 		}
 
 		.fixedwidth, code{
-			width: 650px;
+			max-width: 650px;
 		}
 
 		.header{
@@ -63,11 +64,21 @@
 			font-size: 5em;
 		}
 
+		h1,h2,h3,h5{
+			line-height: 1em;
+			margin-bottom: 0.4em;
+			margin-top: 1em;
+		}
+
 		pre{
 			background: #444;
 			color: #74FF33;
 			padding: 15px;
 			border-bottom: 2px solid #000;
+		}
+
+		code{
+			word-wrap: break-word;
 		}
 /*
 		div.post > p:first-child{
@@ -79,6 +90,16 @@
 			color: #444;
 			padding: 15px;
 			border-left: 4px solid #888;
+		}
+
+		.footer{
+			border-top: 1px #bbb solid;
+			margin: 60px 0;
+		}
+
+		img{
+			margin: 0 auto;
+			display:block;
 		}
 	</style>
 </head>

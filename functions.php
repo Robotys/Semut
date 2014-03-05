@@ -5,6 +5,13 @@
 	CONST disalowed_uri_char = '!@#;\'&^|[]';
 	CONST base_uri = 'http://localhost/semut';
 	
+	function elapse_time(){
+		global $start_time;
+		global $stop_time;
+
+		return number_format(($stop_time - $start_time), 5).' second';
+	}
+
 	function dumper($multi){
 		echo '<pre>';
 		var_dump($multi);

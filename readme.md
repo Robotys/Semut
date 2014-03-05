@@ -9,3 +9,5 @@ It should be easy to modify to, for web development who has touch PHP, even a li
 Well, except fot he parsedown class.
 
 Themes style is inspired from [qrohlf.com](http://qrohlf.com/posts/learn-to-code-then-learn-cs/)
+
+Licensed under MIT License.
