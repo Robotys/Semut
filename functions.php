@@ -39,6 +39,16 @@
 		echo implode($li);
 	}
 
+	function get_filename_from_slug($slug){
+		$articles = articles();
+
+		foreach($articles as $article){
+			if($article['slug'] == $slug) return $article['filename'];
+		}
+
+		return false;
+	}
+
 	function articles($order_by = 'date', $sort_to = 'ASC', $limit = 0){
 		// sedut dari mds
 
@@ -50,8 +60,9 @@
 
 		if($limit === 0) $limit = count($files);
 
-		for($i = 0; $i < $limit; $i++){
-			$filename = $files[$i];	
+		
+		foreach($files as $filename){
+			// $filename = $files[$i];	
 			$timestamp  = filemtime('mds/'.$filename);
 			$param['timestamp'] = $timestamp;
 			$param['datetime'] = date('d M Y H:i a',$timestamp);
@@ -59,10 +70,20 @@
 			$param['slug'] = get_slug($filename);
 			$param['title'] = get_title($filename);
 			$param['excerpt'] = get_excerpt($filename);
-			$fs[] = $param;	
+			if($order_by == 'date') $fs[$timestamp] = $param;
+			if($order_by == 'title') $fs[$param['title']] = $param;
 		}
+		// }
 
-		return $fs;
+
+		if($sort_to == 'ASC') ksort($fs);
+		if($sort_to == 'DESC') krsort($fs);
+
+		//cut to limit
+		// $ret = array();
+		$ret = array_slice($fs, 0, $limit);
+
+		return $ret;
 	}
 
 	function get_title($filename){
@@ -87,7 +108,8 @@
 		// if(array_key_exists(3, $exp) !== FALSE) $arr[] = $exp[3];
 		// if(array_key_exists(4, $exp) !== FALSE) $arr[] = $exp[4];
 		
-		return trim(implode('
+
+		if(ISSET($arr)) return trim(implode('
 ', $arr));
 	}
 
