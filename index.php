@@ -111,6 +111,9 @@
 			color: #aaa;
 		}
 	</style>
+
+	<?php init_trail();?>
+
 </head>
 <body>
 <div class="center fixedwidth"><div class="wrapper">

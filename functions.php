@@ -5,6 +5,12 @@
 	CONST disalowed_uri_char = '!@#;\'&^|[]';
 	CONST base_uri = 'http://localhost/semut';
 	
+
+	function init_trail(){
+		echo '<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>';
+		echo '<script type="text/javascript" src="trailer.js"></script>';
+	}
+
 	function elapse_time(){
 		global $start_time;
 		global $stop_time;
