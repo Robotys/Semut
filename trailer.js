@@ -11,6 +11,8 @@ $(document).ready(function(){
 		setCookie('uid',uniq);
 	}
 
+	
+
 	$('a').on('click', function(event){
 
 		// stop jump
@@ -19,6 +21,7 @@ $(document).ready(function(){
 		// prep data
 		var param = {};
 		param.uid = getCookie('uid');
+		param.timestamp = Date.now() || +new Date();
 		param.text = $(this).html();
 		param.from = document.referrer;
 		param.url = document.URL;
