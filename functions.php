@@ -3,12 +3,34 @@
 	session_start();
 
 	CONST disalowed_uri_char = '!@#;\'&^|[]';
-	CONST base_uri = 'http://localhost/semut';
+	// CONST base_uri = 'http://localhost/semut';
 	
-
+	
 	function init_trail(){
 		echo '<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>';
 		echo '<script type="text/javascript" src="trailer.js"></script>';
+	}
+
+	function base_url($uri = ''){
+		$exp = explode('/',$_SERVER['SERVER_PROTOCOL']);
+		$protocol = strtolower($exp[0]);
+
+		$host = $_SERVER['HTTP_HOST'];
+
+		$to_index = $_SERVER['SCRIPT_NAME'];
+		$to_index = strtolower(str_replace('index.php', '', $to_index));
+		$directory = trim($to_index, '/');
+		$base = trim($protocol.'://'.$host.'/'.$directory , '/'); 
+		
+		// dumper($uri);
+		$base = $base.'/'.trim($uri, '/');
+
+		return trim($base,'/');
+	}
+
+	function site_url($uri = ''){
+		return base_url().'/?/'.$uri;
+
 	}
 
 	function elapse_time(){
@@ -26,7 +48,7 @@
 
 	function article_links($param = ''){
 		$order_by = 'date';
-		$sort_to = 'ASC';
+		$sort_to = 'DESC';
 		$limit = 0;
 
 		$param = json_decode($param, TRUE); 
@@ -129,15 +151,6 @@
 		return $result;
 	}
 
-	function base_url($str = ''){
-		if($str != '') return base_uri.'/'.$str;
-		else return base_uri;
-	}
-
-	function site_url($str = ''){
-		if($str != '') return base_uri.'/?/'.$str;
-		else return base_uri;
-	}
 
 	function uri_segment($segment = 'all'){
 		$uri_string = uri_string();
